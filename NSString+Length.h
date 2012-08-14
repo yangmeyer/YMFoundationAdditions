@@ -6,4 +6,8 @@
 
 - (BOOL) containsText;
 
+- (BOOL) containsSubstring:(NSString*)substring;
+- (BOOL) containsAnySubstring:(NSArray*)substrings;
+- (BOOL) containsAllSubstrings:(NSArray*)substrings;
+
 @end

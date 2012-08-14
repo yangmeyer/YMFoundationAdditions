@@ -10,4 +10,22 @@
 	return [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0;
 }
 
+- (BOOL) containsSubstring:(NSString*)substring {
+	return [self rangeOfString:substring].location != NSNotFound;
+}
+
+- (BOOL) containsAnySubstring:(NSArray*)substrings {
+	for (NSString* aSubstring in substrings)
+		if ([self containsSubstring:aSubstring])
+			return YES;
+	return NO;
+}
+
+- (BOOL) containsAllSubstrings:(NSArray*)substrings {
+	for (NSString* aSubstring in substrings)
+		if (![self containsSubstring:aSubstring])
+			return NO;
+	return YES;
+}
+
 @end
