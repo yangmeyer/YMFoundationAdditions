@@ -14,4 +14,6 @@
 	i.e. where calling `condition(element)` returns YES. */
 - (NSArray*) select:(BOOL(^)(id))condition;
 
+- (BOOL) containsObjectMatchingCondition:(BOOL(^)(id))condition;
+
 @end

@@ -24,4 +24,8 @@
 	return [NSArray arrayWithArray:result];
 }
 
+- (BOOL) containsObjectMatchingCondition:(BOOL(^)(id))condition {
+	return [[self select:condition] count] > 0;
+}
+
 @end
