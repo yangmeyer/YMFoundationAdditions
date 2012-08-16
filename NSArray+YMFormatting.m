@@ -8,7 +8,7 @@
 
 - (NSString*) formattedListOfElementsUsingLinePrefix:(NSString*)prefix {
 	return ([self count]
-			? [NSString stringWithFormat:@"%@%@\n", prefix, [self componentsJoinedByString:[NSString stringWithFormat:@"\n%@", prefix]]]
+			? [prefix stringByAppendingString:[self componentsJoinedByString:[NSString stringWithFormat:@"\n%@", prefix]]]
 			: @"");
 }
 
