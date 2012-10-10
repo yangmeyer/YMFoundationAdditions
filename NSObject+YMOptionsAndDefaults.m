@@ -13,12 +13,14 @@
 - (void)ym_registerOptions:(NSDictionary *)options
 				  defaults:(NSDictionary *)defaults
 {
+	NSParameterAssert(defaults);
 	objc_setAssociatedObject(self, (__bridge const void *)(kYMStandardOptionsTableName), options, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 	objc_setAssociatedObject(self, (__bridge const void *)(kYMStandardDefaultsTableName), defaults, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (id)ym_optionOrDefaultForKey:(NSString*)optionKey
 {
+	NSParameterAssert(optionKey);
 	NSDictionary *options = objc_getAssociatedObject(self, (__bridge const void *)(kYMStandardOptionsTableName));
 	NSDictionary *defaults = objc_getAssociatedObject(self, (__bridge const void *)(kYMStandardDefaultsTableName));
 	NSAssert(defaults, @"Defaults must have been set when accessing options.");
